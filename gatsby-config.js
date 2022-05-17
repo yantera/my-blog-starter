@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-image',
+    'gatsby-plugin-typegen',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -74,11 +75,13 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.nodes.map(node => ({ ...node.frontmatter, description: node.excerpt,
-                  date: node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ 'content:encoded': node.html }],})),
+            serialize: ({ query: { site, allMarkdownRemark } }) => allMarkdownRemark.nodes.map(node => ({
+              ...node.frontmatter, description: node.excerpt,
+              date: node.frontmatter.date,
+              url: site.siteMetadata.siteUrl + node.fields.slug,
+              guid: site.siteMetadata.siteUrl + node.fields.slug,
+              custom_elements: [{ 'content:encoded': node.html }],
+            })),
             query: `
               {
                 allMarkdownRemark(

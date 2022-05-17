@@ -10,7 +10,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 
 function Bio() {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.BioQueryQuery>(graphql`
     query BioQuery {
       site {
         siteMetadata {

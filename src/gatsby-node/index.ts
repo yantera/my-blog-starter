@@ -1,5 +1,5 @@
-const path = require('path')
-const { createFilePath } = require('gatsby-source-filesystem')
+import path from 'path'
+import { createFilePath } from 'gatsby-source-filesystem'
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions

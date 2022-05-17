@@ -28,7 +28,7 @@ function Seo({ description, lang, meta, title }) {
   )
 
   const metaDescription = description || site.siteMetadata.description
-  const defaultTitle = site.siteMetadata?.title
+  const defaultTitle = site.siteMetadata ?.title
 
   return (
     <Helmet
@@ -60,7 +60,7 @@ function Seo({ description, lang, meta, title }) {
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata?.social?.twitter || '',
+          content: site.siteMetadata ?.social ?.twitter || '',
         },
         {
           name: 'twitter:title',
@@ -84,7 +84,7 @@ Seo.defaultProps = {
 Seo.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
+  meta: PropTypes.arrayOf(PropTypes.shape({})),
   title: PropTypes.string.isRequired,
 }
 
